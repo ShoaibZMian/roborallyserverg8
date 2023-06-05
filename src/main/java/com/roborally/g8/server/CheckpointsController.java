@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.roborally.g8.server.Models.ServerModel;
 
+/**
+ * ...
+ *
+ * @author Shaoib Zafar Mian, s200784@dtu.dk
+ */
+
 @RestController
 @RequestMapping("/checkpoints")
 public class CheckpointsController {
