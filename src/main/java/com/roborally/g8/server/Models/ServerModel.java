@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.core.sym.Name;
 
 /**
  * ...
@@ -15,19 +16,24 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class ServerModel  {
     
-    private int orderNo;
+    
+    private String name;
     private Map<String,Object> gameController;
     private Map<String,Object> space;
 
+    public ServerModel() {
+        // Needed to convert from json file to object
+    }
 
-    public ServerModel (int orderNo, Map<String,Object> gameController, Map<String,Object> space){
-        this.orderNo = orderNo;
+
+    public ServerModel (String name, Map<String,Object> gameController, Map<String,Object> space){
+        this.name = name;
         this.gameController = gameController;
         this.space = space;
     }
 
-    public int GetOrderNo(){
-        return this.orderNo;
+    public String GetName(){
+        return this.name;
     }
     public Map<String,Object> GetGameController(){
         return this.gameController;
