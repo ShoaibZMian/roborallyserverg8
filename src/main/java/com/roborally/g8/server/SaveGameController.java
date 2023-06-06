@@ -1,5 +1,6 @@
 package com.roborally.g8.server;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +34,12 @@ public class SaveGameController {
             String fileName = data.GetName() + ".json";
             String filePath = projectDir + "\\src\\main\\java\\com\\roborally\\g8\\server\\JSON\\" + fileName;
 
-            try (FileWriter file = new FileWriter(filePath)) {
-                file.write(json);
+            File file = new File(filePath);
+            if (file.exists()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            }
+            try (FileWriter writer = new FileWriter(filePath)) {
+                writer.write(json);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -44,7 +49,7 @@ public class SaveGameController {
             return (ResponseEntity<ServerModel>) ResponseEntity.internalServerError();
         }
     }
-
+    
     @GetMapping("/{name}")
     public ResponseEntity<ServerModel> Get(@PathVariable String name) {
         try {

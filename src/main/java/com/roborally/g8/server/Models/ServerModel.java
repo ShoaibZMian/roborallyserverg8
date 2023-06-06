@@ -12,34 +12,51 @@ import com.fasterxml.jackson.core.sym.Name;
  * @author Shaoib Zafar Mian, s200784@dtu.dk
  */
 
-
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
-public class ServerModel  {
-    
-    
+public class ServerModel {
+
     private String name;
-    private Map<String,Object> gameController;
-    private Map<String,Object> space;
+    private String currentPlayerName;
+    private String gameName;
+    private String phase;
+    private int step;
+    private Map<String, Object>[] players;
 
     public ServerModel() {
         // Needed to convert from json file to object
     }
 
-
-    public ServerModel (String name, Map<String,Object> gameController, Map<String,Object> space){
+    public ServerModel(String name, String currentPlayerName, String gameName, String phase, int step,
+            Map<String, Object>[] players) {
         this.name = name;
-        this.gameController = gameController;
-        this.space = space;
+        this.currentPlayerName = currentPlayerName;
+        this.gameName = gameName;
+        this.phase = phase;
+        this.step = step;
+        this.players = players;
     }
 
-    public String GetName(){
-        return this.name;
-    }
-    public Map<String,Object> GetGameController(){
-        return this.gameController;
-    }
-    public Map<String,Object> GetSpace(){
-        return this.space;
+    public String GetName() {
+        return name;
     }
 
+    public String GetCurrentPlayerName() {
+        return currentPlayerName;
+    }
+
+    public String GetGameName() {
+        return gameName;
+    }
+
+    public String GetPhase() {
+        return phase;
+    }
+
+    public int GetStep() {
+        return step;
+    }
+
+    public Map<String, Object>[] GetPlayers() {
+        return players;
+    }
 }
