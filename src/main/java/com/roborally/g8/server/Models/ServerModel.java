@@ -16,6 +16,8 @@ import com.fasterxml.jackson.core.sym.Name;
 public class ServerModel {
 
     private String name;
+    private int boardWidth;
+    private int boardHeight;
     private String currentPlayerName;
     private String gameName;
     private String phase;
@@ -26,9 +28,11 @@ public class ServerModel {
         // Needed to convert from json file to object
     }
 
-    public ServerModel(String name, String currentPlayerName, String gameName, String phase, int step,
+    public ServerModel(String name, int boardWidth, int boardHeight, String currentPlayerName, String gameName, String phase, int step,
             Map<String, Object>[] players) {
         this.name = name;
+        this.boardWidth = boardWidth;
+        this.boardHeight = boardHeight;
         this.currentPlayerName = currentPlayerName;
         this.gameName = gameName;
         this.phase = phase;
@@ -38,6 +42,14 @@ public class ServerModel {
 
     public String GetName() {
         return name;
+    }
+
+    public int GetBoardWidth() {
+        return boardWidth;
+    }
+
+    public int GetBoardHeight() {
+        return boardHeight;
     }
 
     public String GetCurrentPlayerName() {

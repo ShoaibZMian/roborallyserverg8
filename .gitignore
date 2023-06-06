@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/java/com/roborally/g8/server/Models/ServerPlayerModel.java

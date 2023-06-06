@@ -1,5 +1,6 @@
 package com.roborally.g8.server.Models;
 
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -23,20 +24,20 @@ public class ServerPlayerModel {
 
     private String heading;
 
-    private Map<String, Object>[] cards;
+    private List<String> commands;
 
     public ServerPlayerModel() {
         // Needed to convert from json file to object
     }
 
     public ServerPlayerModel(String name, String color, int positionX, int positionY, String heading,
-            Map<String, Object>[] cards) {
+    List<String> commands) {
         this.name = name;
         this.color = color;
         this.positionX = positionX;
         this.positionY = positionY;
         this.heading = heading;
-        this.cards = cards;
+        this.commands = commands;
     }
 
     public String GetName() {
@@ -59,8 +60,8 @@ public class ServerPlayerModel {
         return heading;
     }
 
-    public Map<String, Object>[] GetCards() {
-        return cards;
+    public List<String> GetCommands() {
+        return commands;
     }
     
 }
