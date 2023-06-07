@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/multiplayer")
 public class MultiplayerController {
 
-    private static List<MultiplayerPlayerModel> players;
+    private static List<MultiplayerPlayerModel> players = new java.util.ArrayList<>();
     private static MultiplayerModel multiplayerModel;
 
     @PostMapping("/join")
