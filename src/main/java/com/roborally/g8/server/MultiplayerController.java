@@ -24,13 +24,36 @@ public class MultiplayerController {
 
     private static List<MultiplayerPlayerModel> players = new java.util.ArrayList<>();
     private static MultiplayerModel multiplayerModel;
+    private static int totalPlayers;
+
+    @PostMapping("/setTotalPlayers")
+    public ResponseEntity<MultiplayerPlayerModel> PostSetTotalPlayers(@RequestBody int totalPlayers) {
+        try {
+            MultiplayerController.totalPlayers = totalPlayers;
+            return ResponseEntity.ok(null);
+        } catch (Exception e) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
+        }
+    }
+
+    @GetMapping("/totalPlayers")
+    public ResponseEntity<Integer> GetTotalPlayers() {
+        try {
+            return ResponseEntity.ok(totalPlayers);
+        } catch (Exception e) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
+        }
+    }
 
     @PostMapping("/join")
     public ResponseEntity<MultiplayerPlayerModel> Post(@RequestBody MultiplayerPlayerModel data) {
         try {
             for (MultiplayerPlayerModel player : players) {
                 if (player.GetId() == data.GetId()) {
-                    return ResponseEntity.status(HttpStatus.CONFLICT).build();
+                    //return ResponseEntity.status(HttpStatus.CONFLICT).build();
+                    return ResponseEntity.ok(null);
                 }
             }
             players.add(data);
@@ -44,6 +67,8 @@ public class MultiplayerController {
     @GetMapping("/players")
     public ResponseEntity<List<MultiplayerPlayerModel>> Get() {
         try {
+            // Sleep for 5 sec
+            Thread.sleep(5000);
             return ResponseEntity.ok(players);
         } catch (Exception e) {
             throw new ResponseStatusException(
@@ -54,9 +79,14 @@ public class MultiplayerController {
     @GetMapping("/start")
     public ResponseEntity<MultiplayerModel> Start() {
         try {
-            int playerTurn = (int) (Math.random() * (players.size() - 1));
-            multiplayerModel = new MultiplayerModel(playerTurn, players);
-            return ResponseEntity.ok(multiplayerModel);
+            if (players.size() == totalPlayers) {
+                int playerTurn = (int) (Math.random() * (players.size() - 1));
+                multiplayerModel = new MultiplayerModel(playerTurn, players);
+                return ResponseEntity.ok(multiplayerModel);
+            }
+            else {
+                return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            }
         } catch (Exception e) {
             throw new ResponseStatusException(
                     HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
@@ -86,5 +116,6 @@ public class MultiplayerController {
             throw new ResponseStatusException(
                     HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
         }
+
     }
 }
