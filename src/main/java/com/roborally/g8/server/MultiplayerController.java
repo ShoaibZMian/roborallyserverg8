@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.roborally.g8.server.Models.MultiplayerModel;
 import com.roborally.g8.server.Models.MultiplayerPlayerModel;
+import com.roborally.g8.server.Models.ServerModel;
 
 import java.util.List;
 
@@ -22,9 +23,31 @@ import java.util.List;
 @RequestMapping("/multiplayer")
 public class MultiplayerController {
 
+    private static ServerModel gamestate;
     private static List<MultiplayerPlayerModel> players = new java.util.ArrayList<>();
     private static MultiplayerModel multiplayerModel;
     private static int totalPlayers;
+
+    @PostMapping("/savestate")
+    public ResponseEntity<MultiplayerPlayerModel> PostSaveState(@RequestBody ServerModel data) {
+        try {
+            MultiplayerController.gamestate = data;
+            return ResponseEntity.ok(null);
+        } catch (Exception e) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
+        }
+    } 
+
+    @GetMapping("/getstate")
+    public ResponseEntity<ServerModel> GetSaveState() {
+        try {
+            return ResponseEntity.ok(gamestate);
+        } catch (Exception e) {
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
+        }
+    }
 
     @PostMapping("/setTotalPlayers")
     public ResponseEntity<MultiplayerPlayerModel> PostSetTotalPlayers(@RequestBody int totalPlayers) {
@@ -67,8 +90,8 @@ public class MultiplayerController {
     @GetMapping("/players")
     public ResponseEntity<List<MultiplayerPlayerModel>> Get() {
         try {
-            // Sleep for 5 sec
-            Thread.sleep(5000);
+            // Sleep for 1 sec
+            Thread.sleep(1000);
             return ResponseEntity.ok(players);
         } catch (Exception e) {
             throw new ResponseStatusException(
@@ -80,7 +103,8 @@ public class MultiplayerController {
     public ResponseEntity<MultiplayerModel> Start() {
         try {
             if (players.size() == totalPlayers) {
-                int playerTurn = (int) (Math.random() * (players.size() - 1));
+                //int playerTurn = (int) (Math.random() * (players.size() - 1));
+                int playerTurn = 0;
                 multiplayerModel = new MultiplayerModel(playerTurn, players);
                 return ResponseEntity.ok(multiplayerModel);
             }
