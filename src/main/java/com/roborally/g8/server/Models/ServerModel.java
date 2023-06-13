@@ -45,7 +45,7 @@ public class ServerModel {
 
     public String GetBoardName() {
         return boardName;
-    }
+    } 
 
     public String GetCurrentPlayerName() {
         return currentPlayerName;
