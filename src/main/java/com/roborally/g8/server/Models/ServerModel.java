@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.core.sym.Name;
 
 /**
  * ...
@@ -23,18 +22,14 @@ public class ServerModel {
     private String phase;
     private int step;
     private Map<String, Object>[] players;
-    private String ipAdress;
-    private String serverId;
-    private int playerId;
-
-
+    private MultiplayerModel multiplayerModel;
 
     public ServerModel() {
         // Needed to convert from json file to object
     }
 
     public ServerModel(String name, String boardName, String currentPlayerName, String gameName, String phase, int step,
-            Map<String, Object>[] players, String ipAdress, String serverId, int playerId) {
+            Map<String, Object>[] players, MultiplayerModel multiplayerModel) {
         this.name = name;
         this.boardName = boardName;
         this.currentPlayerName = currentPlayerName;
@@ -42,9 +37,7 @@ public class ServerModel {
         this.phase = phase;
         this.step = step;
         this.players = players;
-        this.ipAdress = ipAdress;
-        this.serverId = serverId;
-        this.playerId = playerId;
+        this.multiplayerModel = multiplayerModel;
     }
 
     public String GetName() {
@@ -75,15 +68,11 @@ public class ServerModel {
         return players;
     }
 
-    public String GetIpAdress() {
-        return ipAdress;
+    public MultiplayerModel GetMultiplayerModel() {
+        return multiplayerModel;
     }
 
-    public String GetServerId() {
-        return serverId;
-    }
-
-    public int GetPlayerId() {
-        return playerId;
+    public void SetMultiplayerModel(MultiplayerModel multiplayerModel) {
+        this.multiplayerModel = multiplayerModel;
     }
 }

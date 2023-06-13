@@ -32,6 +32,7 @@ public class SaveGameController {
     @PostMapping
     public ResponseEntity<ServerModel> Post(@RequestBody ServerModel data) {
         try {
+            data.SetMultiplayerModel(MultiplayerController.multiplayerModel);
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writeValueAsString(data);
 
@@ -64,6 +65,10 @@ public class SaveGameController {
 
             ObjectMapper objectMapper = new ObjectMapper();
             ServerModel data = objectMapper.readValue(new File(filePath), ServerModel.class);
+            
+            MultiplayerController.multiplayerModel = data.GetMultiplayerModel();
+            MultiplayerController.players = data.GetMultiplayerModel().GetPlayers();
+            MultiplayerController.totalPlayers = data.GetMultiplayerModel().GetTotalPlayers();
 
             return ResponseEntity.ok(data);
         } catch (Exception e) {
