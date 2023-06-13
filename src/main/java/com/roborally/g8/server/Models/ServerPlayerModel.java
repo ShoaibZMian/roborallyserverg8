@@ -1,11 +1,9 @@
 package com.roborally.g8.server.Models;
 
 import java.util.List;
-import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.core.sym.Name;
 
 /**
  * ...
@@ -26,42 +24,47 @@ public class ServerPlayerModel {
 
     private List<String> commands;
 
+    private List<Integer> checkPoints;
+
     public ServerPlayerModel() {
-        // Needed to convert from json file to object
     }
 
     public ServerPlayerModel(String name, String color, int positionX, int positionY, String heading,
-    List<String> commands) {
+            List<String> commands, List<Integer> checkPoints) {
         this.name = name;
         this.color = color;
         this.positionX = positionX;
         this.positionY = positionY;
         this.heading = heading;
         this.commands = commands;
+        this.checkPoints = checkPoints;
     }
 
     public String GetName() {
-        return name;
+        return this.name;
     }
 
     public String GetColor() {
-        return color;
+        return this.color;
     }
 
     public int GetPositionX() {
-        return positionX;
+        return this.positionX;
     }
 
     public int GetPositionY() {
-        return positionY;
+        return this.positionY;
     }
 
     public String GetHeading() {
-        return heading;
+        return this.heading;
     }
 
     public List<String> GetCommands() {
-        return commands;
+        return this.commands;
     }
-    
+
+    public List<Integer> GetCheckPoints() {
+        return this.checkPoints;
+    }   
 }
