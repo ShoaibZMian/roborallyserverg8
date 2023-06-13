@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "fa344558-fd9e-4365-b348-568d353db160",
+		"name": "RoboRally",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27969979"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/savegame",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"yoloswag22420\",\r\n    \"currentPlayerName\": \"Player 1\",\r\n    \"gameName\": \"yoloswag22420\",\r\n    \"phase\": \"PROGRAMMING\",\r\n    \"step\": 0,\r\n    \"players\": [\r\n        {\r\n            \"name\": \"Player 1\",\r\n            \"color\": \"red\",\r\n            \"positionX\": 0,\r\n            \"positionY\": 0,\r\n            \"heading\": \"SOUTH\",\r\n            \"cards\": [\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"RIGHT\",\r\n                        \"name\": \"Turn Right\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"OPTION_LEFT_RIGHT\",\r\n                        \"name\": \"Left or Right\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"LEFT\",\r\n                        \"name\": \"Turn Left\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"THREE_FORWARD\",\r\n                        \"name\": \"Move three forward \"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"FAST_FORWARD\",\r\n                        \"name\": \"Fast Forward\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"FAST_FORWARD\",\r\n                        \"name\": \"Fast Forward\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"REARWARDS\",\r\n                        \"name\": \"Move one back\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 1\",\r\n                        \"color\": \"red\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"HALF_ROTATION\",\r\n                        \"name\": \"Turn 180 degrees\"\r\n                    },\r\n                    \"visible\": true\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Player 2\",\r\n            \"color\": \"green\",\r\n            \"positionX\": 1,\r\n            \"positionY\": 1,\r\n            \"heading\": \"SOUTH\",\r\n            \"cards\": [\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"REARWARDS\",\r\n                        \"name\": \"Move one back\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"OPTION_LEFT_RIGHT\",\r\n                        \"name\": \"Left or Right\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"OPTION_LEFT_RIGHT\",\r\n                        \"name\": \"Left or Right\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"HALF_ROTATION\",\r\n                        \"name\": \"Turn 180 degrees\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"REARWARDS\",\r\n                        \"name\": \"Move one back\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"RIGHT\",\r\n                        \"name\": \"Turn Right\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"LEFT\",\r\n                        \"name\": \"Turn Left\"\r\n                    },\r\n                    \"visible\": true\r\n                },\r\n                {\r\n                    \"player\": {\r\n                        \"name\": \"Player 2\",\r\n                        \"color\": \"green\",\r\n                        \"point\": 0,\r\n                        \"checkPoints\": 0,\r\n                        \"heading\": \"SOUTH\"\r\n                    },\r\n                    \"card\": {\r\n                        \"command\": \"FAST_FORWARD\",\r\n                        \"name\": \"Fast Forward\"\r\n                    },\r\n                    \"visible\": true\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/savegame",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"savegame"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/multiplayer/start",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/multiplayer/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"multiplayer",
+						"start"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
