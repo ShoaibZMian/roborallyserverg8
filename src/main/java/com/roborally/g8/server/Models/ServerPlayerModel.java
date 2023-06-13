@@ -6,7 +6,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 /**
- * ...
+ * Class representing a player in the RoboRally game on the server side.
+ * This model is used for communication between the client and the server.
  *
  * @author Shaoib Zafar Mian, s200784@dtu.dk
  */
@@ -26,8 +27,16 @@ public class ServerPlayerModel {
 
     private List<Integer> checkPoints;
 
+ /**
+     * Default constructor.
+     */
+
     public ServerPlayerModel() {
     }
+
+   /**
+     * Constructor to initialize all fields.
+     */
 
     public ServerPlayerModel(String name, String color, int positionX, int positionY, String heading,
             List<String> commands, List<Integer> checkPoints) {

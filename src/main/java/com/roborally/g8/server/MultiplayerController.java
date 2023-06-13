@@ -15,7 +15,9 @@ import com.roborally.g8.server.Models.ServerModel;
 
 import java.util.List;
 
-/*
+/**
+ * Class handling the multiplayer functionality of the RoboRally game.
+ * 
  * @author Shaoib Zafar Mian, s200784@dtu.dk
  */
 
@@ -25,6 +27,14 @@ public class MultiplayerController {
     public static MultiplayerModel multiplayerModel;
     public static List<MultiplayerPlayerModel> players = new java.util.ArrayList<>();
     public static int totalPlayers;
+
+
+     /**
+     * Saves the current state of the game.
+     *
+     * @param data The current state of the server.
+     * @return A ResponseEntity indicating the outcome of the operation.
+     */
 
     @PostMapping("/savestate")
     public ResponseEntity<MultiplayerPlayerModel> PostSaveState(@RequestBody ServerModel data) {
@@ -37,6 +47,12 @@ public class MultiplayerController {
         }
     }
 
+     /**
+     * Retrieves the current state of the game.
+     *
+     * @return A ResponseEntity containing the current game state.
+     */
+
     @GetMapping("/getstate")
     public ResponseEntity<ServerModel> GetSaveState() {
         try {
@@ -46,6 +62,13 @@ public class MultiplayerController {
                     HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
         }
     }
+
+     /**
+     * Sets the total number of players in the game.
+     *
+     * @param totalPlayers The total number of players.
+     * @return A ResponseEntity indicating the outcome of the operation.
+     */
 
     @PostMapping("/setTotalPlayers")
     public ResponseEntity<MultiplayerPlayerModel> PostSetTotalPlayers(@RequestBody int totalPlayers) {
@@ -58,6 +81,12 @@ public class MultiplayerController {
         }
     }
 
+      /**
+     * Retrieves the total number of players in the game.
+     *
+     * @return A ResponseEntity containing the total number of players.
+     */
+
     @GetMapping("/totalPlayers")
     public ResponseEntity<Integer> GetTotalPlayers() {
         try {
@@ -67,6 +96,13 @@ public class MultiplayerController {
                     HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
         }
     }
+
+     /**
+     * Adds a player to the game.
+     *
+     * @param data The player to be added.
+     * @return A ResponseEntity indicating the outcome of the operation.
+     */
 
     @PostMapping("/join")
     public ResponseEntity<MultiplayerPlayerModel> Post(@RequestBody MultiplayerPlayerModel data) {
@@ -85,6 +121,12 @@ public class MultiplayerController {
         }
     }
 
+     /**
+     * Retrieves the list of players in the game.
+     *
+     * @return A ResponseEntity containing the list of players.
+     */
+
     @GetMapping("/players")
     public ResponseEntity<List<MultiplayerPlayerModel>> Get() {
         try {
@@ -96,6 +138,12 @@ public class MultiplayerController {
                     HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
         }
     }
+
+     /**
+     * Starts the game if the number of players matches the total.
+     *
+     * @return A ResponseEntity containing the game model if the game started, or an error status.
+     */
 
     @GetMapping("/start")
     public ResponseEntity<MultiplayerModel> Start() {
@@ -114,6 +162,12 @@ public class MultiplayerController {
         }
     }
 
+ /**
+     * Retrieves the current player's turn.
+     *
+     * @return A ResponseEntity containing the current player's turn.
+     */
+
     @GetMapping("/playerTurn")
     public ResponseEntity<Integer> GetPlayerTurn() {
         try {
@@ -123,6 +177,12 @@ public class MultiplayerController {
                     HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
         }
     }
+
+    /**
+     * Proceeds to the next player's turn.
+     *
+     * @return A ResponseEntity containing the new player's turn.
+     */
 
     @GetMapping("/nextPlayerTurn")
     public ResponseEntity<Integer> NextPlayerTurn() {
@@ -139,6 +199,13 @@ public class MultiplayerController {
         }
     }
 
+    /**
+     * Retrieves the current multiplayer model.
+     *
+     *     * @return A ResponseEntity containing the current multiplayer model.
+     */
+
+
     @GetMapping("/getMultiplayerModel")
     public ResponseEntity<MultiplayerModel> GetMultiplayerModel() {
         try {
@@ -148,6 +215,13 @@ public class MultiplayerController {
                     HttpStatus.INTERNAL_SERVER_ERROR, "Error msg.....", e);
         }
     }
+
+   /**
+     * Updates the current multiplayer model.
+     *
+     * @param data The new multiplayer model.
+     * @return A ResponseEntity indicating the outcome of the operation.
+     */
 
     @PostMapping("/postMultiplayerModel")
     public ResponseEntity<MultiplayerModel> PostUpdateMultiplayerModel(@RequestBody MultiplayerModel data) {

@@ -6,11 +6,12 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 /**
- * ...
+ * This class represents the state of a multiplayer game. It encapsulates game-specific
+ * details such as the player's turn, the list of players, 
+ * the game state, and the total number of players.
  *
  * @author Shaoib Zafar Mian, s200784@dtu.dk
  */
-
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class MultiplayerModel {
 
@@ -19,9 +20,20 @@ public class MultiplayerModel {
     private ServerModel gamestate;
     private int totalPlayers;
 
+  /**
+     * Default constructor. Required for conversion from JSON file to object.
+     */
+
     public MultiplayerModel() {
-        // Needed to convert from json file to object
+       
     }
+
+ /**
+     * A constructor to initialize the playerTurn and players fields of the MultiplayerModel.
+     *
+     * @param playerTurn Specifies whose turn it is to play, based on player id
+     * @param players The list of players in the game
+     */
 
     public MultiplayerModel(int playerTurn, List<MultiplayerPlayerModel> players) {
         this.playerTurn = playerTurn;

@@ -22,13 +22,23 @@ import java.util.stream.Collectors;
 import java.util.List;
 
 
-/*
+/**
+ * Class handling the save game functionality of the RoboRally game.
+ * 
  * @author Shaoib Zafar Mian, s200784@dtu.dk
  */
 
 @RestController
 @RequestMapping("/savegame")
 public class SaveGameController {
+    
+     /**
+     * Saves the current game state to a file.
+     *
+     * @param data The current state of the server.
+     * @return A ResponseEntity indicating the outcome of the operation.
+     */
+    
     @PostMapping
     public ResponseEntity<ServerModel> Post(@RequestBody ServerModel data) {
         try {
@@ -56,6 +66,13 @@ public class SaveGameController {
         }
     }
     
+ /**
+     * Retrieves the game state from a file.
+     *
+     * @param name The name of the saved game.
+     * @return A ResponseEntity containing the loaded game state.
+     */
+
     @GetMapping("/{name}")
     public ResponseEntity<ServerModel> Get(@PathVariable String name) {
         try {
@@ -75,6 +92,12 @@ public class SaveGameController {
             return (ResponseEntity<ServerModel>) ResponseEntity.internalServerError();
         }
     }
+
+/**
+     * Retrieves the names of all saved games.
+     *
+     * @return A ResponseEntity containing a list of saved game names.
+     */
 
     @GetMapping
     public ResponseEntity<List<String>> GetAll() {

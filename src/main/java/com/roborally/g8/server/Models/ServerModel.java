@@ -7,7 +7,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 /**
- * ...
+ * Class representing the state of a game on the server side.
+ * This model is used for communication between the client and the server.
  *
  * @author Shaoib Zafar Mian, s200784@dtu.dk
  */
@@ -24,9 +25,17 @@ public class ServerModel {
     private Map<String, Object>[] players;
     private MultiplayerModel multiplayerModel;
 
+  /**
+     * Default constructor. Required for conversion from JSON file to object.
+     */
+
     public ServerModel() {
-        // Needed to convert from json file to object
+        
     }
+
+/**
+     * Constructor to initialize all fields.
+     */
 
     public ServerModel(String name, String boardName, String currentPlayerName, String gameName, String phase, int step,
             Map<String, Object>[] players, MultiplayerModel multiplayerModel) {

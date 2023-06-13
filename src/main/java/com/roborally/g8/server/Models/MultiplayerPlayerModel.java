@@ -6,7 +6,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 /**
- * ...
+ * This class represents a multiplayer player in the game. It encapsulates player-specific
+ * details such as id, name, IP address, and a list of checkpoints for the player.
  *
  * @author Shaoib Zafar Mian, s200784@dtu.dk
  */
@@ -19,9 +20,22 @@ public class MultiplayerPlayerModel {
     private String ipAddress;
     private List<Integer> checkPoints;
 
+ /**
+     * Default constructor. Required for conversion from JSON file to object.
+     */
+
     public MultiplayerPlayerModel() {
-        // Needed to convert from json file to object
+        
     }
+
+    /**
+     * A constructor to initialize all the fields of the MultiplayerPlayerModel.
+     *
+     * @param id The unique identifier for the player
+     * @param name The name of the player
+     * @param ipAddress The IP address of the player
+     * @param checkPoints The list of checkpoints that the player has crossed
+     */
 
     public MultiplayerPlayerModel(int id, String name, String ipAddress, List<Integer> checkPoints) {
         this.id = id;
